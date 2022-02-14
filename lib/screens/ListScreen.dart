@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:testapp/MovieModel.dart';
 import 'package:testapp/componants/MovieCard.dart';
 import 'package:testapp/network.dart';
@@ -30,14 +31,14 @@ class _ListScreenState extends State<ListScreen> {
   @override
   Widget build(BuildContext context) {
     if (movieList.isEmpty) {
-      return Container(child: Text("Loading ....."));
+      return SpinKitDoubleBounce(
+        color: Colors.white,
+        size: 200,
+      );
     } else {
-      return Scaffold(
-        appBar: AppBar(title: Text("MovieSS app")),
-        body: ListView.builder(
-          itemBuilder: (context, index) => MovieCard(movie: movieList[index]),
-          itemCount: movieList.length,
-        ),
+      return ListView.builder(
+        itemBuilder: (context, index) => MovieCard(movie: movieList[index]),
+        itemCount: movieList.length,
       );
     }
   }
