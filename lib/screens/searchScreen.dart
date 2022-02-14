@@ -44,11 +44,13 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
           ),
         ),
-        ListView.builder(
-            itemCount: movieList.length,
-            itemBuilder: (context, ind) => MovieCard(
-                  movie: movieList[ind],
-                ))
+        Expanded(
+          child: ListView.builder(
+              itemCount: movieList.length,
+              itemBuilder: (context, ind) => MovieCard(
+                    movie: movieList[ind],
+                  )),
+        )
       ],
     );
   }
